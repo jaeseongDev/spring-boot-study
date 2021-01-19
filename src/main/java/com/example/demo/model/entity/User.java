@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 // @Table(name = "user") // 실제 DB의 테이블 이름과 클래스 이름이 동일하므로 생략해도 됨
 public class User {
