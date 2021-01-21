@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 
 import com.example.demo.DemoApplicationTests;
+import com.example.demo.model.entity.Item;
 import com.example.demo.model.entity.User;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -32,12 +33,14 @@ public class UserRepositoryTest extends DemoApplicationTests { // 상속 해주�
     }
 
     @Test
+    @Transactional
     public void read() {
         Optional<User> user = userRepository.findById(1L);
 
         user.ifPresent(selectUser -> {
-            System.out.println("user : " + selectUser);
-            System.out.println("email : " + selectUser.getEmail());
+            selectUser.getOrderDetailList().stream().forEach(detail -> {
+                System.out.println(detail.getItem());
+            });
         });
     }
 

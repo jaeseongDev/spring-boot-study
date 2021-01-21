@@ -1,39 +1,37 @@
 package com.example.demo.model.entity;
 
-
 import java.time.LocalDateTime;
-import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
-public class Item {
+public class AdminUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String account;
+
+    private String password;
+
     private String status;
 
-    private String name;
+    private String role;
 
-    private String title;
+    private LocalDateTime lastLoginAt;
 
-    private String content;
+    private LocalDateTime passwordUpdatedAt;
 
-    private Integer price;
-
-    private String brandName;
+    private int loginFailCount;
 
     private LocalDateTime registeredAt;
 

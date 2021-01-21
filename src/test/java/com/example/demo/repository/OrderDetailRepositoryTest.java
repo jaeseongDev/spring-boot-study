@@ -18,10 +18,6 @@ public class OrderDetailRepositoryTest extends DemoApplicationTests {
 
         orderDetail.setOrderAt(LocalDateTime.now());
 
-        orderDetail.setUserId(7L);
-
-        orderDetail.setItemId(1L);
-
         OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
         Assertions.assertNotNull(newOrderDetail);
     }
