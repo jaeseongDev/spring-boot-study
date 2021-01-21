@@ -13,35 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class UserRepositoryTest extends DemoApplicationTests { // 상속 해주어야 한다!
 
-    @Autowired // Dependency Injection(DI)을 활용해서 new를 사용해 인스턴스를 생성하지 않아도 저절로 해당 객체를 생성해줌.
+    @Autowired
     private UserRepository userRepository;
 
     @Test
     public void create() {
-        // String sql = INSERT INTO user (%s, %s, %d) VALUE (account, email, age);
-        User user = new User();
-//        user.setId(); // Workbench를 통해 id 컬럼을 AutoIncrement로 설정했기 때문에 이 코드가 필요 없다.
-        user.setAccount("TestUser01");
-        user.setEmail("TestUser01@gmail.com");
-        user.setPhoneNumber("010-1111-1111");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setCreatedBy("admin");
 
-        User newUser = userRepository.save(user);
-        System.out.println("newUser : " + newUser);
 
     }
 
     @Test
     @Transactional
     public void read() {
-        Optional<User> user = userRepository.findById(1L);
 
-        user.ifPresent(selectUser -> {
-            selectUser.getOrderDetailList().stream().forEach(detail -> {
-                System.out.println(detail.getItem());
-            });
-        });
     }
 
     @Test
